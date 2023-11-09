@@ -14,7 +14,6 @@ export default function Home(){
     organization: 'blah',
     assignedUser: 'Another name',
   }
-
   const myJSON = JSON.stringify(client);
   localStorage.setItem("1", myJSON);
 
@@ -33,6 +32,6 @@ export default function Home(){
   }
   console.log(localStorage);
   return (
-      "hello world\n"
+    "rip"
   )
 }
