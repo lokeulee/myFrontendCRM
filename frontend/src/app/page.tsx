@@ -1,5 +1,4 @@
-import CRMList from "@/components/CRMList";
-import { Box } from "@mui/material";
+import CRMMain from "@/components/CRMMain";
 import { promises as fs } from "fs";
 
 export default async function Home() {
@@ -10,11 +9,5 @@ export default async function Home() {
   // localStorage.setItem("1", myJSON);
 
   // console.log(localStorage);
-
-  return (
-    <Box>
-      <CRMHeader></CRMHeader>
-      <CRMList></CRMList>
-    </Box>
-  );
+  return <CRMMain></CRMMain>;
 }

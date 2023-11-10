@@ -1,56 +1,30 @@
 "use client";
 import { Client } from "@/types/client";
-import { Add } from "@mui/icons-material";
-import { Box, Button, Divider, IconButton, List } from "@mui/material";
+import { Add, MoreVert } from "@mui/icons-material";
+import { Avatar, Box, Button, Divider, IconButton, List } from "@mui/material";
 import { useState } from "react";
 
-export default function CRMList() {
-  const [clients, setClients] = useState<Client[]>([
-    {
-      clientID: 1,
-      contactNum: 1234567890,
-      name: "John Doe",
-      avatar: "https://example.com/avatar.png",
-      organization: "Acme Corporation",
-      assignedUser: "Jane Doe",
-    },
-    {
-      clientID: 2,
-      contactNum: 9876543210,
-      name: "Jane Doe",
-      avatar: "https://example.com/avatar_2.png",
-      organization: "Acme Corporation",
-      assignedUser: "John Doe",
-    },
-  ]);
+interface CRMListProps {
+  clients: Client[];
+}
 
+export default function CRMList({ clients }: CRMListProps) {
   // let signal = useSignal("hello");
   // signal.value = "derp";
   // console.log(signal);
-
-  const addClient = () => {
-    setClients([
-      ...clients,
-      {
-        clientID: 3,
-        contactNum: 1111111111,
-        name: "New Client",
-        avatar: "https://example.com/avatar_3.png",
-        organization: "Acme Corporation",
-        assignedUser: "John Doe",
-      },
-    ]);
-  };
 
   return (
     <Box>
       <List>
         {clients.map((client) => (
           <Box>
-            <Box display="flex">
+            <Box display="flex" align-items="center" justifyContent="center">
+              <Box marginTop={0.5}>
+                <Avatar alt={client.name}></Avatar>
+              </Box>
               <Box p={2}>{client.name}</Box>
-              <IconButton onClick={addClient}>
-                <Add />
+              <IconButton>
+                <MoreVert />
               </IconButton>
             </Box>
             <Divider />
