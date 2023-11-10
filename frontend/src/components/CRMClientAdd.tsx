@@ -32,7 +32,10 @@ export default function CRMClientAdd({
       <Box display="flex" p={2}>
         Add Client
       </Box>
-      <CRMClientAddDialogPrompt></CRMClientAddDialogPrompt>
+      <CRMClientAddDialogPrompt
+        clients={clients}
+        onSetClients={onSetClients}
+      ></CRMClientAddDialogPrompt>
     </Box>
   );
 }

@@ -12,11 +12,20 @@ import {
   TextField,
 } from "@mui/material";
 import { Add, CloudUpload } from "@mui/icons-material";
+import { Client } from "@/types/client";
 
-export default function CRMClientAddDialogPrompt() {
+interface CRMClientAddDialogPromptProps {
+  clients: Client[];
+  onSetClients: (newClientsArray: Client[]) => void;
+}
+
+export default function CRMClientAddDialogPrompt({
+  clients,
+  onSetClients,
+}: CRMClientAddDialogPromptProps) {
   const [state, setState] = useState({
     name: "",
-    number: "",
+    number: 0,
     organization: "",
     assignedUser: "",
     avatar: "",
@@ -35,7 +44,7 @@ export default function CRMClientAddDialogPrompt() {
   };
 
   const handleUserAssignedChanged = (event: any) => {
-    setState({ ...state, organization: event.target.value });
+    setState({ ...state, assignedUser: event.target.value });
   };
 
   const handleAvatarChange = (event: any) => {
@@ -63,6 +72,20 @@ export default function CRMClientAddDialogPrompt() {
   const handleClose = () => {
     setOpen(false);
   };
+
+  function handleAddClient() {
+    onSetClients([
+      ...clients,
+      {
+        clientID: 3,
+        contactNum: state.number,
+        name: state.name,
+        avatar: "https://example.com/avatar_3.png",
+        organization: state.organization,
+        assignedUser: state.assignedUser,
+      },
+    ]);
+  }
 
   return (
     <>
@@ -121,12 +144,7 @@ export default function CRMClientAddDialogPrompt() {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>
-          <Button
-          //   onClick={}
-          //   disabled={dialog.actionButtonDisabled}
-          >
-            Add
-          </Button>
+          <Button onClick={handleAddClient}>Add</Button>
         </DialogActions>
       </Dialog>
     </>
