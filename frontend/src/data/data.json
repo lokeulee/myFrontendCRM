@@ -1,0 +1,8 @@
+{
+    "clientID": 1,
+    "contactNum": 1234567890,
+    "name": "A name",
+    "avatar": "https://example.com/avatar.png",
+    "organization": "blah",
+    "assignedUser": "Another name"
+}
