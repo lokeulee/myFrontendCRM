@@ -1,15 +1,17 @@
 "use client";
 import { Client } from "@/types/client";
-import { Add, MoreVert } from "@mui/icons-material";
+import { MoreVert } from "@mui/icons-material";
 import {
   Avatar,
   Box,
+  Button,
   Divider,
   IconButton,
   List,
   Menu,
   MenuItem,
 } from "@mui/material";
+import Link from "next/link";
 import { MouseEvent, useState } from "react";
 
 interface CRMListProps {
@@ -18,9 +20,6 @@ interface CRMListProps {
 }
 
 export default function CRMList({ clients, onSetClients }: CRMListProps) {
-  // let signal = useSignal("hello");
-  // signal.value = "derp";
-  // console.log(signal);
   const [anchorElement, setAnchorElement] = useState<null | HTMLElement>(null);
   const [currentClientID, setCurrentClientID] = useState<number>(0);
   const open = Boolean(anchorElement);
@@ -86,7 +85,11 @@ export default function CRMList({ clients, onSetClients }: CRMListProps) {
           horizontal: "left",
         }}
       >
-        <MenuItem onClick={handleClose}>View Client Details</MenuItem>
+        <MenuItem>
+          <Link href={`/clients/${currentClientID}`}>
+            <Box>View Details</Box>
+          </Link>
+        </MenuItem>
         <MenuItem onClick={handleInactive}>Set as inactive</MenuItem>
       </Menu>
     </Box>

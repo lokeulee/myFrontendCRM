@@ -1,38 +1,29 @@
 "use client";
 import { Box } from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CRMHeader from "./CRMHeader";
 import CRMClientAdd from "./CRMClientAdd";
 import CRMList from "./CRMList";
 import { Client } from "@/types/client";
 
-export default function CRMMain() {
-  const [openDialog, setOpenDialog] = useState(false);
-  const [clients, setClients] = useState<Client[]>([
-    {
-      ID: 1,
-      contactNum: 1234567890,
-      name: "John Doe",
-      avatar: "https://example.com/avatar.png",
-      organization: "Acme Corporation",
-      assignedUser: "Jane Doe",
-      isActive: true,
-      creationDate: new Date(),
-    },
-    {
-      ID: 2,
-      contactNum: 9876543210,
-      name: "Jane Doe",
-      avatar: "https://example.com/avatar_2.png",
-      organization: "Acme Corporation",
-      assignedUser: "John Doe",
-      isActive: true,
-      creationDate: new Date(),
-    },
-  ]);
+interface CRMMainProps {
+  data: any;
+}
 
-  console.log("Here : ");
-  console.log(clients.length + "\n");
+export default function CRMMain({ data }: CRMMainProps) {
+  const [openDialog, setOpenDialog] = useState(false);
+  const [clients, setClients] = useState<Client[]>([]);
+  // const [isSortByStatus, setisSortByStatus] = useState<boolean>(false);
+  // const [isSortByCreation, setisSortByStatus] = useState<boolean>(false);
+  useEffect(() => {
+    const addData = async () => {
+      console.log("add Data Called !");
+      setClients([...clients, ...data]);
+    };
+    if (clients.length === 0) {
+      addData();
+    }
+  }, []);
 
   function handleSetClients(newClientsArray: Client[]) {
     setClients(newClientsArray);
@@ -40,7 +31,7 @@ export default function CRMMain() {
 
   return (
     <Box width={500}>
-      <CRMHeader></CRMHeader>
+      <CRMHeader clients={clients}></CRMHeader>
       <CRMClientAdd
         clients={clients}
         onSetClients={handleSetClients}

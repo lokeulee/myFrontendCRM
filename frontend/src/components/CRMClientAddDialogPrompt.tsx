@@ -1,7 +1,6 @@
 "use client";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
-  Box,
   Button,
   Dialog,
   DialogActions,
@@ -32,35 +31,37 @@ export default function CRMClientAddDialogPrompt({
   });
 
   const handleNameChange = (event: any) => {
-    setState({ ...state, name: event.target.value });
+    if (event) setState({ ...state, name: event.target.value });
   };
 
   const handleNumberChange = (event: any) => {
-    setState({ ...state, number: event.target.value });
+    if (event) setState({ ...state, number: event.target.value });
   };
 
   const handleOrganizationChange = (event: any) => {
-    setState({ ...state, organization: event.target.value });
+    if (event) setState({ ...state, organization: event.target.value });
   };
 
   const handleUserAssignedChanged = (event: any) => {
-    setState({ ...state, assignedUser: event.target.value });
+    if (event) setState({ ...state, assignedUser: event.target.value });
   };
 
   const handleAvatarChange = (event: any) => {
-    const file = event.target.files[0];
+    if (event) {
+      const file = event.target.files[0];
 
-    const reader = new FileReader();
-    reader.onload = () => {
-      const avatarDataURL = reader.result;
+      const reader = new FileReader();
+      reader.onload = () => {
+        const avatarDataURL = reader.result;
 
-      if (typeof avatarDataURL === "string") {
-        setState({ ...state, avatar: avatarDataURL });
-      } else {
-        console.error("Avatar must be a string");
-      }
-    };
-    reader.readAsDataURL(file);
+        if (typeof avatarDataURL === "string") {
+          setState({ ...state, avatar: avatarDataURL });
+        } else {
+          console.error("Avatar must be a string");
+        }
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
   const [open, setOpen] = useState(false);
@@ -87,6 +88,11 @@ export default function CRMClientAddDialogPrompt({
         creationDate: new Date(),
       },
     ]);
+    handleNameChange("");
+    handleAvatarChange("");
+    handleNumberChange("");
+    handleOrganizationChange("");
+    handleClose();
   }
 
   return (

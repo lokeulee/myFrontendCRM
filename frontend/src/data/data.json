@@ -1,8 +1,52 @@
-{
-    "clientID": 1,
-    "contactNum": 1234567890,
-    "name": "A name",
-    "avatar": "https://example.com/avatar.png",
-    "organization": "blah",
-    "assignedUser": "Another name"
-}
+[
+    {
+      "ID": 1,
+      "contactNum": 1234567890,
+      "name": "Person 1",
+      "avatar": "https://example.com/avatar.png",
+      "organization": "Acme Corporation",
+      "assignedUser": "Jane Doe",
+      "isActive": true,
+      "CreationDate": "2023-11-11T17:04:38.881Z"
+    },
+    {
+      "ID": 2,
+      "contactNum": 9876543210,
+      "name": "Person 2",
+      "avatar": "https://example.com/avatar_2.png",
+      "organization": "XYZ Company",
+      "assignedUser": "John Doe",
+      "isActive": true,
+      "CreationDate": "2023-11-11T17:04:38.881Z"
+    },
+    {
+      "ID": 3,
+      "contactNum": 9876543210,
+      "name": "Person 3",
+      "avatar": "https://example.com/avatar_2.png",
+      "organization": "XYZ Company",
+      "assignedUser": "John Doe",
+      "isActive": true,
+      "CreationDate": "2023-11-11T17:04:38.881Z"
+    },
+    {
+      "ID": 4,
+      "contactNum": 9876543210,
+      "name": "Person 4",
+      "avatar": "https://example.com/avatar_2.png",
+      "organization": "XYZ Company",
+      "assignedUser": "John Doe",
+      "isActive": true,
+      "CreationDate": "2023-11-11T17:04:38.881Z"
+    },
+    {
+      "ID": 5,
+      "contactNum": 9876543210,
+      "name": "Person 5",
+      "avatar": "https://example.com/avatar_2.png",
+      "organization": "XYZ Company",
+      "assignedUser": "John Doe",
+      "isActive": true,
+      "CreationDate": "2023-11-11T17:04:38.881Z"
+    }
+  ]

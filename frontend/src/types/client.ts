@@ -6,5 +6,5 @@ export interface Client {
   organization: string;
   assignedUser: string;
   isActive: boolean;
-  creationDate: Date;
+  creationDate: Date | null;
 }
