@@ -11,7 +11,7 @@ import {
   TextField,
 } from "@mui/material";
 import { Add, CloudUpload } from "@mui/icons-material";
-import { Client } from "@/types/client";
+import { Client } from "@/types/clientType";
 
 interface CRMClientAddDialogPromptProps {
   clients: Client[];

@@ -1,5 +1,5 @@
 "use client";
-import { Client } from "@/types/client";
+import { Client } from "@/types/clientType";
 import { Box } from "@mui/material";
 import CRMClientAddDialogPrompt from "./CRMClientAddDialogPrompt";
 

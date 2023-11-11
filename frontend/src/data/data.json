@@ -7,7 +7,7 @@
       "organization": "Acme Corporation",
       "assignedUser": "Jane Doe",
       "isActive": true,
-      "CreationDate": "2023-11-11T17:04:38.881Z"
+      "CreationDate": "Sat Nov 11 2023 22:04:41 GMT+0800 (Malaysia Time)"
     },
     {
       "ID": 2,
@@ -17,7 +17,7 @@
       "organization": "XYZ Company",
       "assignedUser": "John Doe",
       "isActive": true,
-      "CreationDate": "2023-11-11T17:04:38.881Z"
+      "CreationDate": "Sat Nov 11 2023 22:04:41 GMT+0800 (Malaysia Time)"
     },
     {
       "ID": 3,
@@ -27,7 +27,7 @@
       "organization": "XYZ Company",
       "assignedUser": "John Doe",
       "isActive": true,
-      "CreationDate": "2023-11-11T17:04:38.881Z"
+      "CreationDate": "Sat Nov 11 2023 22:04:41 GMT+0800 (Malaysia Time)"
     },
     {
       "ID": 4,
@@ -37,7 +37,7 @@
       "organization": "XYZ Company",
       "assignedUser": "John Doe",
       "isActive": true,
-      "CreationDate": "2023-11-11T17:04:38.881Z"
+      "CreationDate": "Sat Nov 11 2023 22:04:41 GMT+0800 (Malaysia Time)"
     },
     {
       "ID": 5,
@@ -47,6 +47,6 @@
       "organization": "XYZ Company",
       "assignedUser": "John Doe",
       "isActive": true,
-      "CreationDate": "2023-11-11T17:04:38.881Z"
+      "CreationDate": "Sat Nov 11 2023 22:04:41 GMT+0800 (Malaysia Time)"
     }
   ]
