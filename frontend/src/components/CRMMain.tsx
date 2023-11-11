@@ -30,6 +30,7 @@ export default function CRMMain({ data }: CRMMainProps) {
         console.log("Local storage data found!!, setting data");
         setClients([...clients, ...parsed]);
       } else {
+        // * Auto populate 5 clients if the client array is empty * //
         // console.log("Local storage data not found, setting data.json");
         // setClients([...clients, ...data]);
       }
