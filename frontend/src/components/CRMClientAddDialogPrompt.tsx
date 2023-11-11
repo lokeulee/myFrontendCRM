@@ -77,12 +77,14 @@ export default function CRMClientAddDialogPrompt({
     onSetClients([
       ...clients,
       {
-        clientID: 3,
+        ID: clients.length + 1,
         contactNum: state.number,
         name: state.name,
         avatar: "https://example.com/avatar_3.png",
         organization: state.organization,
         assignedUser: state.assignedUser,
+        isActive: true,
+        creationDate: new Date(),
       },
     ]);
   }

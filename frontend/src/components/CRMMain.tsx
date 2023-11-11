@@ -10,22 +10,29 @@ export default function CRMMain() {
   const [openDialog, setOpenDialog] = useState(false);
   const [clients, setClients] = useState<Client[]>([
     {
-      clientID: 1,
+      ID: 1,
       contactNum: 1234567890,
       name: "John Doe",
       avatar: "https://example.com/avatar.png",
       organization: "Acme Corporation",
       assignedUser: "Jane Doe",
+      isActive: true,
+      creationDate: new Date(),
     },
     {
-      clientID: 2,
+      ID: 2,
       contactNum: 9876543210,
       name: "Jane Doe",
       avatar: "https://example.com/avatar_2.png",
       organization: "Acme Corporation",
       assignedUser: "John Doe",
+      isActive: true,
+      creationDate: new Date(),
     },
   ]);
+
+  console.log("Here : ");
+  console.log(clients.length + "\n");
 
   function handleSetClients(newClientsArray: Client[]) {
     setClients(newClientsArray);
@@ -38,7 +45,7 @@ export default function CRMMain() {
         clients={clients}
         onSetClients={handleSetClients}
       ></CRMClientAdd>
-      <CRMList clients={clients}></CRMList>
+      <CRMList clients={clients} onSetClients={handleSetClients}></CRMList>
     </Box>
   );
 }
