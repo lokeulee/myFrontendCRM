@@ -37,6 +37,7 @@ Things that should be handled
 1. Beautifying the whole look
 2. The error checking for empty characters for the clients.
 3. Probably mobile compatibility
+4. Probably just remove the save data thing and automatically lets it save.
 
 Stacks used:
 NextJs
