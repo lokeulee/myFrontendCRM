@@ -49,13 +49,28 @@ export default function CRMHeader({ clients, handleStatus }: CRMHeaderProps) {
         }}
       >
         <MenuItem onClick={handleSaveData}>Save Data</MenuItem>
-        <MenuItem onClick={() => handleStatus(sortingType.NORMAL)}>
+        <MenuItem
+          onClick={() => {
+            handleStatus(sortingType.NORMAL);
+            handleClose();
+          }}
+        >
           Reset Sort
         </MenuItem>
-        <MenuItem onClick={() => handleStatus(sortingType.STATUS)}>
+        <MenuItem
+          onClick={() => {
+            handleStatus(sortingType.STATUS);
+            handleClose();
+          }}
+        >
           Sort by Activity
         </MenuItem>
-        <MenuItem onClick={() => handleStatus(sortingType.CREATION)}>
+        <MenuItem
+          onClick={() => {
+            handleStatus(sortingType.CREATION);
+            handleClose();
+          }}
+        >
           Sort By Creation
         </MenuItem>
       </Menu>

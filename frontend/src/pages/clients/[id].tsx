@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Client } from "@/types/clientType";
 import {
   Box,
@@ -13,48 +14,60 @@ import { useRouter } from "next/router";
 export default function ClientDetailsPage() {
   const router = useRouter();
   const clientID = router.query.id;
+  const [filtered, setFiltered] = useState<Client | null>(null);
 
-  let localStorageData;
-  if (typeof window !== "undefined") {
-    localStorageData = localStorage.getItem("ClientData");
-  }
+  useEffect(() => {
+    const loadClientData = async () => {
+      try {
+        if (typeof window !== "undefined") {
+          const localStorageData = localStorage.getItem("ClientData");
 
-  if (localStorageData) {
-    const clients = JSON.parse(localStorageData);
-    const filtered: Client = clients.find((client: Client) => {
-      if (client.ID.toString() === router.query.id) {
-        return client;
+          if (localStorageData) {
+            const clients = JSON.parse(localStorageData);
+            const filteredClient = clients.find(
+              (client: Client) => client.ID.toString() === clientID
+            );
+
+            setFiltered(filteredClient);
+          }
+        }
+      } catch (error) {
+        console.error("Error loading client data:", error);
       }
-    });
+    };
 
-    return (
-      <Box width={500}>
-        Details of Client
-        <TableContainer>
-          <Table>
-            <TableHead>
-              <TableRow>
-                <TableCell>ID</TableCell>
-                <TableCell>Name</TableCell>
-                <TableCell>Contact number</TableCell>
-                <TableCell>Organization</TableCell>
-                <TableCell>Activity</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              <TableRow>
-                <TableCell>{filtered.ID}</TableCell>
-                <TableCell>{filtered.name}</TableCell>
-                <TableCell>{filtered.contactNum}</TableCell>
-                <TableCell>{filtered.organization}</TableCell>
-                <TableCell>{filtered.isActive ? "Yes" : "No"}</TableCell>
-              </TableRow>
-            </TableBody>
-          </Table>
-        </TableContainer>
-      </Box>
-    );
+    loadClientData();
+  }, [clientID]);
+
+  if (!filtered) {
+    return <div>The Client is not found</div>;
   }
 
-  return <div>The Client is not found</div>;
+  return (
+    <Box width={500}>
+      Details of Client
+      <TableContainer>
+        <Table>
+          <TableHead>
+            <TableRow>
+              <TableCell>ID</TableCell>
+              <TableCell>Name</TableCell>
+              <TableCell>Contact number</TableCell>
+              <TableCell>Organization</TableCell>
+              <TableCell>Activity</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            <TableRow>
+              <TableCell>{filtered.ID}</TableCell>
+              <TableCell>{filtered.name}</TableCell>
+              <TableCell>{filtered.contactNum}</TableCell>
+              <TableCell>{filtered.organization}</TableCell>
+              <TableCell>{filtered.isActive ? "Yes" : "No"}</TableCell>
+            </TableRow>
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </Box>
+  );
 }

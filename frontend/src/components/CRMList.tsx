@@ -51,7 +51,7 @@ export default function CRMList({ clients, onSetClients }: CRMListProps) {
           <Box>
             <Box display="flex" align-items="center" justifyContent="center">
               <Box marginTop={0.5}>
-                <Avatar alt={client.name}></Avatar>
+                <Avatar alt={client.name}>{client.name[0]}</Avatar>
               </Box>
               <Box p={2}>{client.name}</Box>
               <Box p={2}>

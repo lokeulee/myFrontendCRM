@@ -46,24 +46,6 @@ export default function CRMClientAddDialogPrompt({
     if (event) setState({ ...state, assignedUser: event.target.value });
   };
 
-  const handleAvatarChange = (event: any) => {
-    if (event) {
-      const file = event.target.files[0];
-
-      const reader = new FileReader();
-      reader.onload = () => {
-        const avatarDataURL = reader.result;
-
-        if (typeof avatarDataURL === "string") {
-          setState({ ...state, avatar: avatarDataURL });
-        } else {
-          console.error("Avatar must be a string");
-        }
-      };
-      reader.readAsDataURL(file);
-    }
-  };
-
   const [open, setOpen] = useState(false);
 
   const handleClickOpen = () => {
@@ -89,7 +71,6 @@ export default function CRMClientAddDialogPrompt({
       },
     ]);
     handleNameChange("");
-    handleAvatarChange("");
     handleNumberChange("");
     handleOrganizationChange("");
     handleClose();
@@ -141,14 +122,6 @@ export default function CRMClientAddDialogPrompt({
             value={state.assignedUser}
             onChange={handleUserAssignedChanged}
           />
-          <Button
-            component="label"
-            variant="contained"
-            startIcon={<CloudUpload />}
-          >
-            Upload Avatar
-            <input hidden accept="image/*" multiple type="file" />
-          </Button>
         </DialogContent>
         <DialogActions>
           <Button onClick={handleClose}>Cancel</Button>

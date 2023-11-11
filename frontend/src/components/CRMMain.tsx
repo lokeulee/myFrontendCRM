@@ -16,6 +16,7 @@ export default function CRMMain({ data }: CRMMainProps) {
   const [clients, setClients] = useState<Client[]>([]);
   const [sortStatus, setSortStatus] = useState<sortingType>(sortingType.NORMAL);
 
+  console.log(clients);
   useEffect(() => {
     const addData = async () => {
       let localStorageData;
